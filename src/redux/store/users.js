@@ -123,5 +123,5 @@ const slice = createSlice({
     }
 })
 
-
+console.log('user slice => ' , slice )
 export default slice.reducer
