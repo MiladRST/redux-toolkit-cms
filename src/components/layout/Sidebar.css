@@ -1,0 +1,9 @@
+ @reference "tailwindcss";
+
+.sidebar_item {
+    @apply transition-all block p-2 rounded hover:bg-gray-200;
+}
+
+.sidebar_item.active {
+    @apply bg-black text-white;
+}

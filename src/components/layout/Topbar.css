@@ -1,0 +1,5 @@
+ @reference "tailwindcss";
+
+ .badge {
+    @apply w-4 h-4 text-sm flex items-center justify-center absolute top-0 right-0 bg-black text-white rounded;
+ }
