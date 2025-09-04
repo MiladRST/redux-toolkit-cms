@@ -60,8 +60,6 @@ export const slice = createSlice({
                 pending: false, 
                 error: false 
             }
-            // Add user to the state array
-            //state.entities.push(action.payload)
         })
     }
 })
