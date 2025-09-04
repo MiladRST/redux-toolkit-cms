@@ -8,6 +8,7 @@ export const getUsers = createAsyncThunk(
         try {
             const response = await api.get(url)
             if(response.success) {
+                console.log('getUsers data => ' ,response.data)
                 return response.data
             } else {
                 return null
@@ -24,6 +25,7 @@ export const removeUser = createAsyncThunk(
         try {
             const response = await api.delete(`/users/${id}`)
             if(response.success) {
+                console.log('removeUsers data => ' ,response.data)
                 return response.data
             }
         }catch(err) {
@@ -63,6 +65,7 @@ const slice = createSlice({
         builder
         .addCase(getUsers.pending , 
             (state, action) => {
+            console.log('getUsers.pending => ', action);    
             return {
                 ...state,
                 pending: true,
@@ -71,6 +74,7 @@ const slice = createSlice({
         })
         .addCase(getUsers.rejected , 
             (state, action) => {
+                console.log('getUsers.rejected => ', action);
                 return {
                     ...state,
                     pending: false,
@@ -78,8 +82,7 @@ const slice = createSlice({
                 }
         })
         .addCase(getUsers.fulfilled , (state, action) => {
-            console.log(action);
-            
+            console.log('getUsers.fulfilled => ', action);
             return {
                 ...state,
                 data: [...action.payload],
@@ -90,6 +93,7 @@ const slice = createSlice({
 
         builder
         .addCase(removeUser.fulfilled , (state, action) => {
+            console.log('removeUsers.fulfilled => ', action);
             return {
                 ...state,
                 data: state.data.filter( item => item._id !== action.payload.id)
